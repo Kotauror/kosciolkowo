@@ -1,4 +1,5 @@
 import React from 'react';
+import MapContainer from './MapContainer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         >
          Kościółkowo! 
         </a>
+        <MapContainer />
       </header>
     </div>
   );
