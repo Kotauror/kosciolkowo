@@ -11,7 +11,7 @@ interface ILeaflet {
   className?: string;
 }
 
-const defaultZoom = 15;
+const defaultZoom = 18;
 
 const getStyleForPropertyType = (propertyType: PropertyType) => {
   if (propertyType === PropertyType.PLOT_OF_LAND) {
@@ -76,15 +76,15 @@ let currentCoordinates: any = [];
 useEffect(() => {
     var map = L.map("map", {
       center: krakowLocation,
-      zoom: defaultZoom
+      zoom: defaultZoom,
     });
 
     L.tileLayer(
       // "https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png",
       // "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      "https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",
+      // "https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",
       // 'https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png',
-      // 'https://tile.osm.ch/switzerland/{z}/{x}/{y}.png',
+      'https://tile.osm.ch/switzerland/{z}/{x}/{y}.png',
       // 'https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png',
       {
         detectRetina: true,
@@ -114,7 +114,7 @@ useEffect(() => {
 };
 
 const StyledLeaflet = styled(Leaflet)`
-  width: 1280px;
+  width: 1480px;
   height: 980px;
 `;
 
