@@ -12,6 +12,8 @@ export const MapContainer: FunctionComponent<IMapContainer> = ({
   className
 }) => {
   const [activeEstate, setActiveEstate] = useState<IEstate | null>(null)
+
+  console.log(activeEstate)
   return (
     <div className={className}>
       <Leaflet setActiveEstate={setActiveEstate}/>
