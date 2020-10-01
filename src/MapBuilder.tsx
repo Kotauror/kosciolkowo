@@ -37,7 +37,7 @@ const entirePlotPolyStyle = {
 const defaultZoomn = 8;
 
 const getStylingForPropertyType = (propertyType: PropertyType) => {
-  if (propertyType === PropertyType.CHURCH_OPEN_TO_PUBLIC) {
+  if (propertyType === PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC) {
     return publicChurchPolyStyle;
   }
   if (propertyType === PropertyType.PLOT_OF_LAND) {

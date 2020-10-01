@@ -1,8 +1,8 @@
-import IChurchEstate, { PropertyType } from "./types";
+import IEstate, { PropertyType, PropertyTags } from "./types";
 
-const church_loretanska: IChurchEstate = {
+const church_loretanska: IEstate = {
   name: "Kościół Zwiastowania Najświętszej Maryi Panny",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.06187871812481, 19.93023386516143],
     [50.06192348674149, 19.930236547370445],
@@ -18,7 +18,7 @@ const church_loretanska: IChurchEstate = {
   ]
 };
 
-const plot_loretanska: IChurchEstate = {
+const plot_loretanska: IEstate = {
   name: "Działki Zakonu Kapucynów",
   propertyType: PropertyType.PLOT_OF_LAND,
   coordinates: [
@@ -34,9 +34,9 @@ const plot_loretanska: IChurchEstate = {
   ]
 };
 
-const closed_green_loretanska1: IChurchEstate = {
+const closed_green_loretanska1: IEstate = {
   name: "Obszar zielony loretańska",
-  propertyType: PropertyType.PARK_CLOSED_FOR_PUBLIC,
+  propertyType: PropertyType.GREEN_AREA_CLOSED_FOR_PUBLIC,
   coordinates: [
     [50.062519133716854, 19.929905682220124],
     [50.062443372358736, 19.929245858802464],
@@ -48,9 +48,9 @@ const closed_green_loretanska1: IChurchEstate = {
   ]
 };
 
-const closed_green_loretanska2: IChurchEstate = {
+const closed_green_loretanska2: IEstate = {
   name: "Obszar zielony loretańska",
-  propertyType: PropertyType.PARK_CLOSED_FOR_PUBLIC,
+  propertyType: PropertyType.GREEN_AREA_CLOSED_FOR_PUBLIC,
   coordinates: [
     [50.061851430502486, 19.929778585556054],
     [50.06185831798861, 19.92963911068728],
@@ -74,9 +74,9 @@ const closed_green_loretanska2: IChurchEstate = {
   ]
 };
 
-const church_sw_anny: IChurchEstate = {
+const church_sw_anny: IEstate = {
   name: "Kolegiata studencka św. Anny",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.062299730472674, 19.933185206609778],
     [50.06215337252647, 19.93354194040876],
@@ -101,9 +101,9 @@ const church_sw_anny: IChurchEstate = {
   ]
 };
 
-const garden_open_sw_anny: IChurchEstate = {
+const garden_open_sw_anny: IEstate = {
   name: "Otwarty zielony skwerek św. Anny",
-  propertyType: PropertyType.PARK_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.GREEN_AREA_OPEN_TO_PUBLIC,
   coordinates: [
     [50.06266059237599, 19.933565886458386],
     [50.06272946603097, 19.933418364962566],
@@ -118,7 +118,7 @@ const garden_open_sw_anny: IChurchEstate = {
   ]
 };
 
-const plot_aw_anny: IChurchEstate = {
+const plot_aw_anny: IEstate = {
   name: "Teren kościoła i duszpasterstwa św. Anny",
   propertyType: PropertyType.PLOT_OF_LAND,
   coordinates: [
@@ -135,9 +135,9 @@ const plot_aw_anny: IChurchEstate = {
   ]
 };
 
-const cerkiew_podwyszenia: IChurchEstate = {
+const cerkiew_podwyszenia: IEstate = {
   name: "Cerkiew Podwyższenia Krzyża Św. w Krakowie",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.06044786597418, 19.93407818838023],
     [50.0603324970592, 19.93397626443766],
@@ -156,7 +156,7 @@ const cerkiew_podwyszenia: IChurchEstate = {
   ]
 };
 
-const klasztor_reformatorow: IChurchEstate = {
+const klasztor_reformatorow: IEstate = {
   name: "Teren Klasztora Reformatorów",
   propertyType: PropertyType.PLOT_OF_LAND,
   coordinates: [
@@ -173,9 +173,9 @@ const klasztor_reformatorow: IChurchEstate = {
   ]
 };
 
-const ogrod_klasztor_reformatorow: IChurchEstate = {
+const ogrod_klasztor_reformatorow: IEstate = {
   name: "Ogród Klasztora Reformatorów",
-  propertyType: PropertyType.PARK_CLOSED_FOR_PUBLIC,
+  propertyType: PropertyType.GREEN_AREA_CLOSED_FOR_PUBLIC,
   coordinates: [
     [50.064882451855865, 19.935508959606526],
     [50.06473351913739, 19.935350709274644],
@@ -184,9 +184,9 @@ const ogrod_klasztor_reformatorow: IChurchEstate = {
   ]
 };
 
-const kosciol_sw_kazimierza_krolewicza: IChurchEstate = {
+const kosciol_sw_kazimierza_krolewicza: IEstate = {
   name: "Kościół św. Kazimierza Królewicza",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.06467852845243, 19.93627657691832],
     [50.06472587710896, 19.936412028473573],
@@ -209,9 +209,9 @@ const kosciol_sw_kazimierza_krolewicza: IChurchEstate = {
   ]
 };
 
-const droga_krzyzowa_reformancka: IChurchEstate = {
+const droga_krzyzowa_reformancka: IEstate = {
   name: "Droga Krzyzowa przy ul. Reformanckiej",
-  propertyType: PropertyType.PARK_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.GREEN_AREA_OPEN_TO_PUBLIC,
   coordinates: [
     [50.064655276983004, 19.93650286603952],
     [50.06443833334478, 19.936454586277254],
@@ -221,9 +221,9 @@ const droga_krzyzowa_reformancka: IChurchEstate = {
   ]
 };
 
-const kosciol_sw_marka: IChurchEstate = {
+const kosciol_sw_marka: IEstate = {
   name: "Kosciol sw. Marka",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.06467697566455, 19.93756639727508],
     [50.06452632053246, 19.937463132228004],
@@ -238,9 +238,9 @@ const kosciol_sw_marka: IChurchEstate = {
   ]
 };
 
-const kosciol_pijarow: IChurchEstate = {
+const kosciol_pijarow: IEstate = {
   name: "Kosciol sw. Marka",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.06507706699125, 19.93971083778888],
     [50.06502197077167, 19.93969072122127],
@@ -253,9 +253,9 @@ const kosciol_pijarow: IChurchEstate = {
   ]
 };
 
-const kosciol_jana_chrzciciela: IChurchEstate = {
+const kosciol_jana_chrzciciela: IEstate = {
   name: "Kościół św. Jana Chrzciciela i Jana Ewangelisty w Krakowie  ",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     // [50.063184852752826, 19.938801196985878],[50.06311770157787, 19.938786444836296],[50.06309187417787, 19.93886020558421],[50.06309617874551, 19.938980904989876],[50.063105648792934, 19.939102945500053],[50.06311856249097, 19.939113674336113],[50.06314438987662, 19.939113674336113],[50.063180548193145, 19.939073441200893],[50.063180548193145, 19.938897756510414],[50.06318399184092, 19.93889105098788]
     [50.06317683214718, 19.93880094159977],
@@ -270,7 +270,7 @@ const kosciol_jana_chrzciciela: IChurchEstate = {
   ]
 };
 
-const klasztor_prezentek: IChurchEstate = {
+const klasztor_prezentek: IEstate = {
   name: "Klasztor prezentek",
   propertyType: PropertyType.PLOT_OF_LAND,
   coordinates: [
@@ -289,9 +289,9 @@ const klasztor_prezentek: IChurchEstate = {
   ]
 };
 
-const cerkiew_zasniecia_nmp: IChurchEstate = {
+const cerkiew_zasniecia_nmp: IEstate = {
   name: "Cerkiew Prawosławna Zaśnięcia NMP  ",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.063036850503636, 19.94132980500581],
     [50.06314016013873, 19.941040126432203],
@@ -300,9 +300,9 @@ const cerkiew_zasniecia_nmp: IChurchEstate = {
   ]
 };
 
-const siostry_kanoniczki: IChurchEstate = {
+const siostry_kanoniczki: IEstate = {
   name: "siostry kanoniczki ducha świętego",
-  propertyType: PropertyType.CHURCH_CLOSED_FOR_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_CLOSED_FOR_PUBLIC,
   coordinates: [
     [50.06237304379808, 19.94057986303233],
     [50.06233688487287, 19.94054231210612],
@@ -313,9 +313,9 @@ const siostry_kanoniczki: IChurchEstate = {
   ]
 };
 
-const kosciol_sw_tomasza_apostola: IChurchEstate = {
+const kosciol_sw_tomasza_apostola: IEstate = {
   name: "kościół św tomasza apostoła",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.06245448871785, 19.94093667279231],
     [50.06254746852823, 19.940644312009685],
@@ -324,7 +324,7 @@ const kosciol_sw_tomasza_apostola: IChurchEstate = {
   ]
 };
 
-const plebania_sw_krzyza: IChurchEstate = {
+const plebania_sw_krzyza: IEstate = {
   name: "Kościół pw. Świętego Krzyża - plebania  ",
   propertyType: PropertyType.PLOT_OF_LAND,
   coordinates: [
@@ -338,9 +338,9 @@ const plebania_sw_krzyza: IChurchEstate = {
   ]
 };
 
-const kosciol_sw_krzyza: IChurchEstate = {
+const kosciol_sw_krzyza: IEstate = {
   name: "Kościół pw. Świętego Krzyża  ",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.06347002644873, 19.943034922471274],
     [50.06335294298395, 19.942935680737722],
@@ -353,7 +353,7 @@ const kosciol_sw_krzyza: IChurchEstate = {
   ]
 };
 
-const klasztor_dominikanek: IChurchEstate = {
+const klasztor_dominikanek: IEstate = {
   name: "Kościół pw. Świętego Krzyża  ",
   propertyType: PropertyType.PLOT_OF_LAND,
   coordinates: [
@@ -376,9 +376,9 @@ const klasztor_dominikanek: IChurchEstate = {
   ]
 };
 
-const kosciol_matki_boskiej_snieznej: IChurchEstate = {
+const kosciol_matki_boskiej_snieznej: IEstate = {
   name: "Kościół Matki Boskiej Snieznej  ",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.06126760147873, 19.943345220526684],
     [50.06129859553572, 19.94320038123988],
@@ -387,7 +387,7 @@ const kosciol_matki_boskiej_snieznej: IChurchEstate = {
   ]
 };
 
-const dominikanie_plot: IChurchEstate = {
+const dominikanie_plot: IEstate = {
   name: "Klasztor DOminikanow  ",
   propertyType: PropertyType.PLOT_OF_LAND,
   coordinates: [
@@ -412,9 +412,9 @@ const dominikanie_plot: IChurchEstate = {
   ]
 };
 
-const kosciol_dominikanow: IChurchEstate = {
+const kosciol_dominikanow: IEstate = {
   name: "Kosciol Dominikanow  ",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.0594492484215, 19.940129251917828],
     [50.05940619945526, 19.93937555118464],
@@ -442,9 +442,9 @@ const kosciol_dominikanow: IChurchEstate = {
   ]
 };
 
-const dominikanie_park: IChurchEstate = {
+const dominikanie_park: IEstate = {
   name: "Park w klasztorze dominikanow  ",
-  propertyType: PropertyType.PARK_CLOSED_FOR_PUBLIC,
+  propertyType: PropertyType.GREEN_AREA_CLOSED_FOR_PUBLIC,
   coordinates: [
     [50.05908092627163, 19.940172452770643],
     [50.059986674518356, 19.940786678635053],
@@ -476,9 +476,9 @@ const dominikanie_park: IChurchEstate = {
   ]
 };
 
-const kosciol_sw_wojciecha: IChurchEstate = {
+const kosciol_sw_wojciecha: IEstate = {
   name: "Kosciol sw. WOjciecha  ",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.06093527505378, 19.937653572997082],
     [50.060859511194224, 19.937653572997082],
@@ -491,9 +491,9 @@ const kosciol_sw_wojciecha: IChurchEstate = {
   ]
 };
 
-const kosciol_mariacki: IChurchEstate = {
+const kosciol_mariacki: IEstate = {
   name: "Kosciol Mariacki  ",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.061661630770374, 19.938837922818493],
     [50.06164096822429, 19.938837922818493],
@@ -534,9 +534,9 @@ const kosciol_mariacki: IChurchEstate = {
   ]
 };
 
-const konwent_jezuitow: IChurchEstate = {
+const konwent_jezuitow: IEstate = {
   name: "Konwent Jezuitow  ",
-  propertyType: PropertyType.CHURCH_CLOSED_FOR_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_CLOSED_FOR_PUBLIC,
   coordinates: [
     [50.06129859553572, 19.93960353895091],
     [50.061002429283775, 19.939388962229714],
@@ -545,9 +545,9 @@ const konwent_jezuitow: IChurchEstate = {
   ]
 };
 
-const kosciol_sw_barbary: IChurchEstate = {
+const kosciol_sw_barbary: IEstate = {
   name: "Kosciol sw. Barbary  ",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.0612952106063, 19.940063425165135],
     [50.06132103897365, 19.939964183431584],
@@ -564,7 +564,7 @@ const kosciol_sw_barbary: IChurchEstate = {
   ]
 };
 
-const plac_mariacki_bazylika: IChurchEstate = {
+const plac_mariacki_bazylika: IEstate = {
   name: "Plac mariacki - kontakt bazyliki  ",
   propertyType: PropertyType.PLOT_OF_LAND,
   coordinates: [
@@ -585,7 +585,7 @@ const plac_mariacki_bazylika: IChurchEstate = {
   ]
 };
 
-const kuria_metropolitarna: IChurchEstate = {
+const kuria_metropolitarna: IEstate = {
   name: "kuria metropolitarna - dzialka przy Franciszkanskiej 3  ",
   propertyType: PropertyType.PLOT_OF_LAND,
   coordinates: [
@@ -604,7 +604,7 @@ const kuria_metropolitarna: IChurchEstate = {
   ]
 };
 
-const franciszkanie_dzialka: IChurchEstate = {
+const franciszkanie_dzialka: IEstate = {
   name: "Franciszkanie - dzialka",
   propertyType: PropertyType.PLOT_OF_LAND,
   coordinates: [
@@ -634,9 +634,9 @@ const franciszkanie_dzialka: IChurchEstate = {
   ]
 };
 
-const franciszkanie_ogrod_otwarty: IChurchEstate = {
+const franciszkanie_ogrod_otwarty: IEstate = {
   name: "Franciszkanie - dzialka",
-  propertyType: PropertyType.PARK_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.GREEN_AREA_OPEN_TO_PUBLIC,
   coordinates: [
     [50.05923257888289, 19.934762657212563],
     [50.05866432685202, 19.9349316363805],
@@ -650,9 +650,9 @@ const franciszkanie_ogrod_otwarty: IChurchEstate = {
   ]
 };
 
-const franciszkanie_ogrod_zamkniety: IChurchEstate = {
+const franciszkanie_ogrod_zamkniety: IEstate = {
   name: "Franciszkanie - dzialka",
-  propertyType: PropertyType.PARK_CLOSED_FOR_PUBLIC,
+  propertyType: PropertyType.GREEN_AREA_CLOSED_FOR_PUBLIC,
   coordinates: [
     [50.058355189001205, 19.935024196165614],
     [50.05790057960124, 19.93516769434791],
@@ -663,7 +663,7 @@ const franciszkanie_ogrod_zamkniety: IChurchEstate = {
   ]
 };
 
-const sw_p_P_andrzej: IChurchEstate = {
+const sw_p_P_andrzej: IEstate = {
   name: "Teren sw. Piotra i Pawla, sw. Andrzeja, Zgromadzenia Klarystek",
   propertyType: PropertyType.PLOT_OF_LAND,
   coordinates: [
@@ -682,9 +682,9 @@ const sw_p_P_andrzej: IChurchEstate = {
   ]
 };
 
-const kosciol_sw_pawla_i_piotra: IChurchEstate = {
+const kosciol_sw_pawla_i_piotra: IEstate = {
   name: "Kosciol sw. Piotra i Pawla",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.0567834658578, 19.939509868563622],
     [50.05706932589651, 19.939528644026723],
@@ -715,9 +715,9 @@ const kosciol_sw_pawla_i_piotra: IChurchEstate = {
   ]
 };
 
-const park_przy_kosciele_piotra_i_pawla: IChurchEstate = {
+const park_przy_kosciele_piotra_i_pawla: IEstate = {
   name: "Teren zielony obok Pawła i piotra",
-  propertyType: PropertyType.PARK_CLOSED_FOR_PUBLIC,
+  propertyType: PropertyType.GREEN_AREA_CLOSED_FOR_PUBLIC,
   coordinates: [
     [50.05679356610444, 19.938590761448722],
     [50.05676343016411, 19.938612219120845],
@@ -741,9 +741,9 @@ const park_przy_kosciele_piotra_i_pawla: IChurchEstate = {
   ]
 };
 
-const dziedziniec_siostr_klarystek: IChurchEstate = {
+const dziedziniec_siostr_klarystek: IEstate = {
   name: "Dziedzinuec klasztoru siostr klarystek",
-  propertyType: PropertyType.PARK_CLOSED_FOR_PUBLIC,
+  propertyType: PropertyType.GREEN_AREA_CLOSED_FOR_PUBLIC,
   coordinates: [
     [50.056560789017425, 19.938613458070904],
     [50.05650998817486, 19.9386121169664],
@@ -760,9 +760,9 @@ const dziedziniec_siostr_klarystek: IChurchEstate = {
   ]
 };
 
-const kosciol_sw_andrzeja: IChurchEstate = {
+const kosciol_sw_andrzeja: IEstate = {
   name: "kosciol sw. ANdrzeja",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.056652688829224, 19.938241987838413],
     [50.05654075491244, 19.9382393056294],
@@ -782,9 +782,9 @@ const kosciol_sw_andrzeja: IChurchEstate = {
   ]
 };
 
-const zbor_sw_marcina: IChurchEstate = {
+const zbor_sw_marcina: IEstate = {
   name: "Zbór Ewangelicki św. Marcina w Krakowie",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.05599679709218, 19.93847887351876],
     [50.05600024125561, 19.938446687010586],
@@ -797,9 +797,9 @@ const zbor_sw_marcina: IChurchEstate = {
   ]
 };
 
-const kosciol_sw_idziego: IChurchEstate = {
+const kosciol_sw_idziego: IEstate = {
   name: "Kosciol sw. Idziego",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.055287620407654, 19.938270821585323],
     [50.0552772877631, 19.938134028925564],
@@ -821,7 +821,7 @@ const kosciol_sw_idziego: IChurchEstate = {
   ]
 };
 
-const klasztor_bernardynek: IChurchEstate = {
+const klasztor_bernardynek: IEstate = {
   name: "Franciszkanie - dzialka",
   propertyType: PropertyType.PLOT_OF_LAND,
   coordinates: [
@@ -852,9 +852,9 @@ const klasztor_bernardynek: IChurchEstate = {
   ]
 };
 
-const park_klasztora_bernardynek: IChurchEstate = {
+const park_klasztora_bernardynek: IEstate = {
   name: "Klasztor Bernardynek - park",
-  propertyType: PropertyType.PARK_CLOSED_FOR_PUBLIC,
+  propertyType: PropertyType.GREEN_AREA_CLOSED_FOR_PUBLIC,
   coordinates: [
     [50.05798569643134, 19.93958737366484],
     [50.05797966939454, 19.939375479152663],
@@ -875,9 +875,9 @@ const park_klasztora_bernardynek: IChurchEstate = {
   ]
 };
 
-const kosciol_sw_jozefa: IChurchEstate = {
+const kosciol_sw_jozefa: IEstate = {
   name: "Klasztor Bernardynek - kosciiol sw jozega",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.05828863477438, 19.939874442061413],
     [50.05827313677607, 19.93964377208613],
@@ -890,7 +890,7 @@ const kosciol_sw_jozefa: IChurchEstate = {
   ]
 };
 
-const kosciol_opieki_sw_jozefa_dzialka: IChurchEstate = {
+const kosciol_opieki_sw_jozefa_dzialka: IEstate = {
   name: "Kosciol opieki sw. jozefa - dzialka",
   propertyType: PropertyType.PLOT_OF_LAND,
   coordinates: [
@@ -913,9 +913,9 @@ const kosciol_opieki_sw_jozefa_dzialka: IChurchEstate = {
   ]
 };
 
-const kosciol_opieki_sw_jozefa: IChurchEstate = {
+const kosciol_opieki_sw_jozefa: IEstate = {
   name: "Kosciol opieki sw. jozefa",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.07094349718632, 19.930656598589852],
     [50.07074551906972, 19.930533216975167],
@@ -936,9 +936,9 @@ const kosciol_opieki_sw_jozefa: IChurchEstate = {
   ]
 };
 
-const kosciol_opieki_sw_jozefa_ogrod: IChurchEstate = {
+const kosciol_opieki_sw_jozefa_ogrod: IEstate = {
   name: "Ogrod przy kosciele opieki sw. jozefa",
-  propertyType: PropertyType.PARK_CLOSED_FOR_PUBLIC,
+  propertyType: PropertyType.GREEN_AREA_CLOSED_FOR_PUBLIC,
   coordinates: [
     [50.069674503139574, 19.928849599091336],
     [50.06967966791182, 19.93038382264786],
@@ -967,7 +967,7 @@ const kosciol_opieki_sw_jozefa_ogrod: IChurchEstate = {
   ]
 };
 
-const karmelici_karmelicka: IChurchEstate = {
+const karmelici_karmelicka: IEstate = {
   name: "Ogrod przy kosciele opieki sw. jozefa",
   propertyType: PropertyType.PLOT_OF_LAND,
   coordinates: [
@@ -998,9 +998,9 @@ const karmelici_karmelicka: IChurchEstate = {
   ]
 };
 
-const kosciol_karmelitow: IChurchEstate = {
+const kosciol_karmelitow: IEstate = {
   name: "Kościół Karmelitów Nawiedzenia NMP na Piasku",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.06515233153976, 19.93147104192758],
     [50.06494744247478, 19.93158905912424],
@@ -1015,9 +1015,9 @@ const kosciol_karmelitow: IChurchEstate = {
   ]
 };
 
-const ogrod_karmelitow: IChurchEstate = {
+const ogrod_karmelitow: IEstate = {
   name: "Kościół Karmelitów Nawiedzenia NMP na Piasku",
-  propertyType: PropertyType.PARK_CLOSED_FOR_PUBLIC,
+  propertyType: PropertyType.GREEN_AREA_CLOSED_FOR_PUBLIC,
   coordinates: [
     [50.066672903006584, 19.93243180186255],
     [50.066495567724075, 19.931584223813847],
@@ -1031,7 +1031,7 @@ const ogrod_karmelitow: IChurchEstate = {
   ]
 };
 
-const salezjanie: IChurchEstate = {
+const salezjanie: IEstate = {
   name: "Salezjanie - dzialka",
   propertyType: PropertyType.PLOT_OF_LAND,
   coordinates: [
@@ -1055,9 +1055,9 @@ const salezjanie: IChurchEstate = {
   ]
 };
 
-const salezjanie_ogrod: IChurchEstate = {
+const salezjanie_ogrod: IEstate = {
   name: "Salezjanie - ogrod",
-  propertyType: PropertyType.PARK_CLOSED_FOR_PUBLIC,
+  propertyType: PropertyType.GREEN_AREA_CLOSED_FOR_PUBLIC,
   coordinates: [
     [50.06773121474546, 19.934296275023375],
     [50.06806865903585, 19.936270380858335],
@@ -1075,9 +1075,9 @@ const salezjanie_ogrod: IChurchEstate = {
   ]
 };
 
-const salezjanie_kosciol: IChurchEstate = {
+const salezjanie_kosciol: IEstate = {
   name: "Salezjanie - Kosciol",
-  propertyType: PropertyType.CHURCH_OPEN_TO_PUBLIC,
+  propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
   coordinates: [
     [50.068450799588106, 19.93698302074336],
     [50.06842153178811, 19.93679794832133],
@@ -1086,7 +1086,7 @@ const salezjanie_kosciol: IChurchEstate = {
   ]
 };
 
-const wyzsze_seminarium_duchowne: IChurchEstate = {
+const wyzsze_seminarium_duchowne: IEstate = {
   name: "Wyzsze Seminarium Duchowne",
   propertyType: PropertyType.PLOT_OF_LAND,
   coordinates: [
@@ -1111,9 +1111,9 @@ const wyzsze_seminarium_duchowne: IChurchEstate = {
   ]
 };
 
-const wyzsze_seminarium_duchowne_skwerek: IChurchEstate = {
+const wyzsze_seminarium_duchowne_skwerek: IEstate = {
   name: "Wyzsze Seminarium Duchowne - skwerek",
-  propertyType: PropertyType.PARK_CLOSED_FOR_PUBLIC,
+  propertyType: PropertyType.GREEN_AREA_CLOSED_FOR_PUBLIC,
   coordinates: [
     [50.05670526455049, 19.93583704825142],
     [50.0564469554008, 19.935850459296493],

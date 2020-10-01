@@ -21,7 +21,7 @@ const getStyleForPropertyType = (propertyType: PropertyType) => {
       weight: 2,
     };
   }
-  if (propertyType === PropertyType.CHURCH_OPEN_TO_PUBLIC) {
+  if (propertyType === PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC) {
     return {
       color: "#0080FF",
       weight: 1,
@@ -31,7 +31,7 @@ const getStyleForPropertyType = (propertyType: PropertyType) => {
     };
   }
 
-  if (propertyType === PropertyType.CHURCH_CLOSED_FOR_PUBLIC) {
+  if (propertyType === PropertyType.PLACE_OF_WORSHIP_CLOSED_FOR_PUBLIC) {
     return {
       color: "CC0066",
       weight: 1,
@@ -40,17 +40,8 @@ const getStyleForPropertyType = (propertyType: PropertyType) => {
 
     };
   }
-  if (propertyType === PropertyType.PRESBYTERY) {
-    return {
-      color: "yellow",
-      weight: 1,
-      fillOpacity: 0.5,
 
-
-    };
-  }
-
-  if (propertyType === PropertyType.PARK_CLOSED_FOR_PUBLIC) {
+  if (propertyType === PropertyType.GREEN_AREA_CLOSED_FOR_PUBLIC) {
     return {
       color: "#FF0000",
       weight: 1,
@@ -60,7 +51,7 @@ const getStyleForPropertyType = (propertyType: PropertyType) => {
   
   }
 
-  if (propertyType === PropertyType.PARK_OPEN_TO_PUBLIC) {
+  if (propertyType === PropertyType.GREEN_AREA_OPEN_TO_PUBLIC) {
     return {
       color: "#00FF00",
       weight: 1,
