@@ -3,6 +3,7 @@ import IEstate, { PropertyType, PropertyTags } from "./types";
 const church_loretanska: IEstate = {
   name: "Kościół Zwiastowania Najświętszej Maryi Panny",
   propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
+  tags: [PropertyTags.CATOLIC_CHURCH],
   coordinates: [
     [50.06187871812481, 19.93023386516143],
     [50.06192348674149, 19.930236547370445],
@@ -21,6 +22,7 @@ const church_loretanska: IEstate = {
 const plot_loretanska: IEstate = {
   name: "Działki Zakonu Kapucynów",
   propertyType: PropertyType.PLOT_OF_LAND,
+  tags: [PropertyTags.CLOISTER],
   coordinates: [
     [50.06244597026771, 19.92925045313314],
     [50.06174861582152, 19.929317508358512],
@@ -31,7 +33,7 @@ const plot_loretanska: IEstate = {
     [50.061901862482486, 19.930535231251273],
     [50.062024115085705, 19.930398438591514],
     [50.06256665769841, 19.930267282761633]
-  ]
+  ],
 };
 
 const closed_green_loretanska1: IEstate = {
@@ -77,6 +79,8 @@ const closed_green_loretanska2: IEstate = {
 const church_sw_anny: IEstate = {
   name: "Kolegiata studencka św. Anny",
   propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
+  tags: [PropertyTags.CATOLIC_CHURCH],
+  moreInfo: "Kosciol studencki",
   coordinates: [
     [50.062299730472674, 19.933185206609778],
     [50.06215337252647, 19.93354194040876],
@@ -494,6 +498,8 @@ const kosciol_sw_wojciecha: IEstate = {
 const kosciol_mariacki: IEstate = {
   name: "Kosciol Mariacki  ",
   propertyType: PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC,
+  tags: [PropertyTags.CATOLIC_CHURCH],
+  moreInfo: "Super kosciol",
   coordinates: [
     [50.061661630770374, 19.938837922818493],
     [50.06164096822429, 19.938837922818493],

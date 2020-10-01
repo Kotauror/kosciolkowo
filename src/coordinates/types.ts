@@ -18,6 +18,7 @@ interface IEstate {
   coordinates: number[][];
   propertyType: PropertyType; 
   moreInfo?: string;
+  tags?: PropertyTags[]
 }
 
 export default IEstate;

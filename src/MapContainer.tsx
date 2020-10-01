@@ -1,22 +1,30 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
 import Leaflet from './Leaflet';
-// import MapBuilder from  "./MapBuilder";
+import EstateInfo from "./EstateInfo";
+import IEstate from "./coordinates/types";
+import styled from "styled-components";
 
-export const MapContainer: FunctionComponent = ({}) => {
-  // const krakowLocation = {
-  //   lat: 50.06,
-  //   lng: 19.94
-  // };
+interface IMapContainer {
+  className?: string;
+}
 
-
-
+export const MapContainer: FunctionComponent<IMapContainer> = ({
+  className
+}) => {
+  const [activeEstate, setActiveEstate] = useState<IEstate | null>(null)
   return (
-    <div>
-      {/* <MapBuilder defaultCenter={krakowLocation} zoom={16} /> */}
-      <Leaflet />
-
+    <div className={className}>
+      <Leaflet setActiveEstate={setActiveEstate}/>
+      {activeEstate && (
+      <EstateInfo activeEstate={activeEstate}/>
+      )
+      }
     </div>
   );
 };
 
-export default MapContainer;
+const styledMapContainer = styled(MapContainer)`
+display: flex;
+`
+
+export default styledMapContainer;
