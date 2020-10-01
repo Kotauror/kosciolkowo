@@ -9,14 +9,16 @@ export enum PropertyType {
 export enum PropertyTags {
   CATOLIC_CHURCH = 'CATOLIC_CHURCH',
   ORTHODOX_CHURCH = 'ORTHODOX_CHURCH',
+  EVANGELICAL_CHURCH = "EVANGELICAL_CHURCH",
   CLOISTER = 'CLOISTER'
 
 }
 
 interface IEstate {
   name: string;
-  coordinates: number[][];
+  coordinates: any;
   propertyType: PropertyType; 
+  address?: string;
   moreInfo?: string;
   tags?: PropertyTags[]
 }

@@ -2,8 +2,8 @@ import React, { FunctionComponent, useEffect } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import styled from "styled-components";
-import properties from "./coordinates/properties";
 import IEstate, { PropertyType } from "./coordinates/types";
+import Estates from './coordinates/estates.json';
 
 const krakowLocation = [50.06, 19.94];
 
@@ -59,11 +59,15 @@ const getStyleForPropertyType = (propertyType: PropertyType) => {
 };
 
 const addPolygons = (map: any, setActiveEstate: any) => {
-  properties.map(property => {
+ Estates.estates.map(property => {
     var polygon = L.polygon(
       property.coordinates,
-      getStyleForPropertyType(property.propertyType)
+      getStyleForPropertyType(property.propertyType as PropertyType)
     ).addTo(map);
+
+    if (property.propertyType !== PropertyType.PLOT_OF_LAND) {
+      polygon.bringToFront()
+    }
 
     polygon.on("click", () => {
       console.log(property)
