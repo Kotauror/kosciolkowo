@@ -1,21 +1,19 @@
-import React from 'react';
-import MapContainer from './MapContainer';
+import React from "react";
+import MapContainer from "./MapContainer";
 
 function App() {
   return (
     <div className="App">
+      <head>
+        <link rel="stylesheet" href="leaflet.css" />
+        <script src="leaflet.js"></script>
+
+        <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+        <link rel="stylesheet" href="files/leaflet.draw.css" />
+        <script src="files/Leaflet.draw.js"></script>
+      </head>
       <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-         Kościółkowo! 
-        </a>
+        Kościółkowo!
         <MapContainer />
       </header>
     </div>

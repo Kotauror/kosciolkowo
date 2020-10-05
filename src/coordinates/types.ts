@@ -1,21 +1,26 @@
-type Coordinates = {
-  lat: number;
-  lng: number;
-}
-
 export enum PropertyType {
-  CHURCH_OPEN_TO_PUBLIC = 'CHURCH_OPEN_TO_PUBLIC',
+  PLACE_OF_WORSHIP_OPEN_TO_PUBLIC = 'PLACE_OF_WORSHIP_OPEN_TO_PUBLIC',
   PLOT_OF_LAND = 'PLOT_OF_LAND',
-  PRESBYTERY = 'PRESBYTERY',
-  PARK_OPEN_TO_PUBLIC = 'PARK_OPEN_TO_PUBLIC',
-  PARK_CLOSED_FOR_PUBLIC = 'PARK_CLOSED_FOR_PUBLIC'
+  GREEN_AREA_OPEN_TO_PUBLIC = 'GREEN_AREA_OPEN_TO_PUBLIC',
+  GREEN_AREA_CLOSED_FOR_PUBLIC = 'GREEN_AREA_CLOSED_FOR_PUBLIC',
+  PLACE_OF_WORSHIP_CLOSED_FOR_PUBLIC = 'PLACE_OF_WORSHIP_CLOSED_FOR_PUBLIC'
 }
 
-interface IChurchEstate {
+export enum PropertyTags {
+  CATOLIC_CHURCH = 'CATOLIC_CHURCH',
+  ORTHODOX_CHURCH = 'ORTHODOX_CHURCH',
+  EVANGELICAL_CHURCH = "EVANGELICAL_CHURCH",
+  CLOISTER = 'CLOISTER'
+
+}
+
+interface IEstate {
   name: string;
-  coordinates: Coordinates[];
+  coordinates: any;
   propertyType: PropertyType; 
+  address?: string;
   moreInfo?: string;
+  tags?: PropertyTags[]
 }
 
-export default IChurchEstate;
+export default IEstate;
