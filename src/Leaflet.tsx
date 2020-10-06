@@ -33,7 +33,7 @@ interface ILeaflet {
   setActiveEstate(activeEstate: IEstate): void;
 }
 
-const defaultZoom = 16;
+const defaultZoom = 15;
 
 let currentCoordinates: any = [];
 
@@ -80,6 +80,11 @@ const createMap = (setActiveEstate: any) => {
     estateSettings(setActiveEstate)
   );
 
+  var greenAreasClosed: any = L.geoJSON(
+    getEstatesByPropertyType(PropertyType.GREEN_AREA_CLOSED_FOR_PUBLIC),
+    estateSettings(setActiveEstate)
+  );
+
   var wholeChurchArea: any = L.geoJSON(getEstatesByInnerCharacter(false), {
     style: polygonStyles.plotOfLandStyle,
     onEachFeature: function(feature: any, layer: any) {
@@ -103,7 +108,8 @@ const createMap = (setActiveEstate: any) => {
 
   var overlayMaps = {
     "Area occupied by the churches": wholeChurchArea,
-    "Places of Prayer": prayerLayers
+    "Places of Prayer": prayerLayers,
+    "Green areas closed for public": greenAreasClosed,
   };
 
   L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(map);
