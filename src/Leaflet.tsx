@@ -33,9 +33,7 @@ interface ILeaflet {
   setActiveEstate(activeEstate: IEstate): void;
 }
 
-const defaultZoom = 16;
-
-let currentCoordinates: any = [];
+const defaultZoom = 15;
 
 const getEstatesByPropertyType = (propertyType: PropertyType) => {
   return estates[0].features.filter(
@@ -80,6 +78,11 @@ const createMap = (setActiveEstate: any) => {
     estateSettings(setActiveEstate)
   );
 
+  var greenAreasClosed: any = L.geoJSON(
+    getEstatesByPropertyType(PropertyType.GREEN_AREA_CLOSED_FOR_PUBLIC),
+    estateSettings(setActiveEstate)
+  );
+
   var wholeChurchArea: any = L.geoJSON(getEstatesByInnerCharacter(false), {
     style: polygonStyles.plotOfLandStyle,
     onEachFeature: function(feature: any, layer: any) {
@@ -103,18 +106,11 @@ const createMap = (setActiveEstate: any) => {
 
   var overlayMaps = {
     "Area occupied by the churches": wholeChurchArea,
-    "Places of Prayer": prayerLayers
+    "Places of Prayer": prayerLayers,
+    "Green areas closed for public": greenAreasClosed,
   };
 
   L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(map);
-
-  map.on("click", function(e: any) {
-    var coord = e.latlng;
-    var lat = coord.lat;
-    var lng = coord.lng;
-    currentCoordinates.push(`[${lng}, ${lat}]`);
-    console.log(currentCoordinates.toString());
-  });
 };
 
 const Leaflet: FunctionComponent<ILeaflet> = ({
@@ -129,7 +125,7 @@ const Leaflet: FunctionComponent<ILeaflet> = ({
 };
 
 const StyledLeaflet = styled(Leaflet)`
-  width: 1000px;
+  width: -webkit-fill-available;
   height: 980px;
 `;
 
