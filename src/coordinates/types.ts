@@ -15,12 +15,19 @@ export enum PropertyTags {
 }
 
 interface IEstate {
+  geometry: {
+    type: string;
+    coordinates: number[][][];
+  };
+  properties: {
   name: string;
-  coordinates: any;
   propertyType: PropertyType; 
   address?: string;
   moreInfo?: string;
-  tags?: PropertyTags[]
+  tags?: PropertyTags[];
+  isInnerElement: boolean;
+  };
+  type: string;
 }
 
 export default IEstate;

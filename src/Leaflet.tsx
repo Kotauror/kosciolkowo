@@ -35,8 +35,6 @@ interface ILeaflet {
 
 const defaultZoom = 15;
 
-let currentCoordinates: any = [];
-
 const getEstatesByPropertyType = (propertyType: PropertyType) => {
   return estates[0].features.filter(
     location => location.properties.propertyType === propertyType
@@ -113,14 +111,6 @@ const createMap = (setActiveEstate: any) => {
   };
 
   L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(map);
-
-  map.on("click", function(e: any) {
-    var coord = e.latlng;
-    var lat = coord.lat;
-    var lng = coord.lng;
-    currentCoordinates.push(`[${lng}, ${lat}]`);
-    console.log(currentCoordinates.toString());
-  });
 };
 
 const Leaflet: FunctionComponent<ILeaflet> = ({
@@ -135,7 +125,7 @@ const Leaflet: FunctionComponent<ILeaflet> = ({
 };
 
 const StyledLeaflet = styled(Leaflet)`
-  width: 1000px;
+  width: -webkit-fill-available;
   height: 980px;
 `;
 
