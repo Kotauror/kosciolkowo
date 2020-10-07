@@ -6,12 +6,13 @@ import "leaflet-draw/dist/leaflet.draw.css";
 import styled from "styled-components";
 import IEstate, { PropertyType } from "./coordinates/types";
 import { estates } from "./coordinates/church_estates";
+import { analysed_area } from "./coordinates/analysed_area";
 import polygonStyles from "./polygonStyles";
 
 const krakowLocation = [50.06, 19.94];
 
 const simplefMapStyle = L.tileLayer(
-  "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png",
+  "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
   {
     detectRetina: true,
     maxZoom: 20,
@@ -20,7 +21,7 @@ const simplefMapStyle = L.tileLayer(
 );
 
 const detailedMapStyle = L.tileLayer(
-  "https://tile.osm.ch/switzerland/{z}/{x}/{y}.png",
+  "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
   {
     detectRetina: true,
     maxZoom: 20,
@@ -83,6 +84,11 @@ const createMap = (setActiveEstate: any) => {
     estateSettings(setActiveEstate)
   );
 
+  var greenAreasOpen: any = L.geoJSON(
+    getEstatesByPropertyType(PropertyType.GREEN_AREA_OPEN_TO_PUBLIC),
+    estateSettings(setActiveEstate)
+  );
+
   var wholeChurchArea: any = L.geoJSON(getEstatesByInnerCharacter(false), {
     style: polygonStyles.plotOfLandStyle,
     onEachFeature: function(feature: any, layer: any) {
@@ -93,6 +99,11 @@ const createMap = (setActiveEstate: any) => {
     }
   });
 
+
+var analysedArea: any = L.geoJSON(analysed_area, {
+  style: polygonStyles.analysedArea
+})
+
   var map = L.map("map", {
     center: krakowLocation,
     zoom: defaultZoom,
@@ -100,14 +111,16 @@ const createMap = (setActiveEstate: any) => {
   });
 
   var baseMaps = {
-    "Simple Map": simplefMapStyle,
-    "Detailed Map": detailedMapStyle
+    "Plan miasta": simplefMapStyle,
+    "Szczegółowa mapa": detailedMapStyle
   };
 
   var overlayMaps = {
+    "Analysed area": analysedArea,
     "Area occupied by the churches": wholeChurchArea,
     "Places of Prayer": prayerLayers,
-    "Green areas closed for public": greenAreasClosed,
+    "Green church areas closed for public": greenAreasClosed,
+    "Green church open for public": greenAreasOpen,
   };
 
   L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(map);

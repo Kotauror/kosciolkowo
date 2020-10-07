@@ -24,6 +24,12 @@ const polygonStyles = {
     color: "#FF0000",
     weight: 1,
     fillOpacity: 0.5
+  },
+
+  analysedArea: {
+    color: "#ffff00",
+    fillOpacity: 0.2,
+    weight: 0.4,
   }
 };
 
