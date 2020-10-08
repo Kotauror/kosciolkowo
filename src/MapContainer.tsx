@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState } from "react";
-import Leaflet from "./Leaflet";
+import ChurchPropertiesMap from "./ChurchPropertiesMap";
 import EstateInfo from "./EstateInfo";
 import IEstate from "./coordinates/types";
 import styled from "styled-components";
@@ -17,7 +17,7 @@ export const MapContainer: FunctionComponent<IMapContainer> = ({
   return (
     <TransitionGroup component={null}>
       <div className={className}>
-        <Leaflet setActiveEstate={setActiveEstate} />
+        <ChurchPropertiesMap setActiveEstate={setActiveEstate} />
         {activeEstate && (
           <CSSTransition classNames="dialog" timeout={3000} in={activeEstate !== null}>
             <EstateInfo

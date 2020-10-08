@@ -13,6 +13,7 @@ import polygonStyles, {
 } from "./polygonStyles";
 
 const krakowLocation = [50.06, 19.94];
+const defaultZoom = 15;
 
 const simplefMapStyle = L.tileLayer(
   "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
@@ -32,12 +33,10 @@ const detailedMapStyle = L.tileLayer(
   }
 );
 
-interface ILeaflet {
+interface IChurchPropertiesMap {
   className?: string;
   setActiveEstate(activeEstate: IEstate): void;
 }
-
-const defaultZoom = 15;
 
 const getEstatesByPropertyType = (propertyType: PropertyType) => {
   return estates[0].features.filter(
@@ -143,7 +142,7 @@ const createMap = (setActiveEstate: any) => {
   L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(map);
 };
 
-const Leaflet: FunctionComponent<ILeaflet> = ({
+const ChurchPropertiesMap: FunctionComponent<IChurchPropertiesMap> = ({
   className,
   setActiveEstate
 }) => {
@@ -154,9 +153,9 @@ const Leaflet: FunctionComponent<ILeaflet> = ({
   return <div id="map" className={className}></div>;
 };
 
-const StyledLeaflet = styled(Leaflet)`
+const StyledChurchPropertiesMap = styled(ChurchPropertiesMap)`
   width: -webkit-fill-available;
   height: 980px;
 `;
 
-export default StyledLeaflet;
+export default StyledChurchPropertiesMap;
