@@ -7,7 +7,10 @@ import styled from "styled-components";
 import IEstate, { PropertyType } from "./coordinates/types";
 import { estates } from "./coordinates/church_estates";
 import { analysed_area } from "./coordinates/analysed_area";
-import polygonStyles from "./polygonStyles";
+import polygonStyles, {
+  defaultWeight,
+  highlightedWeight
+} from "./polygonStyles";
 
 const krakowLocation = [50.06, 19.94];
 
@@ -48,6 +51,27 @@ const getEstatesByInnerCharacter = (innerCharacter: boolean) => {
   );
 };
 
+const actionListenersForLayers = (
+  feature: any,
+  layer: any,
+  setActiveEstate: any
+) => {
+  layer.bindTooltip(feature.properties.name);
+  layer.on("click", () => {
+    setActiveEstate(feature);
+  });
+  layer.on("mouseover", () => {
+    layer.setStyle({
+      weight: highlightedWeight
+    });
+  });
+  layer.on("mouseout", () => {
+    layer.setStyle({
+      weight: defaultWeight
+    });
+  });
+};
+
 const estateSettings = (setActiveEstate: any) => {
   return {
     style: function(feature: any) {
@@ -65,10 +89,7 @@ const estateSettings = (setActiveEstate: any) => {
       }
     },
     onEachFeature: function(feature: any, layer: any) {
-      layer.bindTooltip(feature.properties.name);
-      layer.on("click", () => {
-        setActiveEstate(feature);
-      });
+      actionListenersForLayers(feature, layer, setActiveEstate);
     }
   };
 };
@@ -92,17 +113,13 @@ const createMap = (setActiveEstate: any) => {
   var wholeChurchArea: any = L.geoJSON(getEstatesByInnerCharacter(false), {
     style: polygonStyles.plotOfLandStyle,
     onEachFeature: function(feature: any, layer: any) {
-      layer.bindTooltip(feature.properties.name);
-      layer.on("click", () => {
-        setActiveEstate(feature);
-      });
+      actionListenersForLayers(feature, layer, setActiveEstate);
     }
   });
 
-
-var analysedArea: any = L.geoJSON(analysed_area, {
-  style: polygonStyles.analysedArea
-})
+  var analysedArea: any = L.geoJSON(analysed_area, {
+    style: polygonStyles.analysedArea
+  });
 
   var map = L.map("map", {
     center: krakowLocation,
@@ -116,11 +133,11 @@ var analysedArea: any = L.geoJSON(analysed_area, {
   };
 
   var overlayMaps = {
-    "Analysed area": analysedArea,
     "Area occupied by the churches": wholeChurchArea,
     "Places of Prayer": prayerLayers,
     "Green church areas closed for public": greenAreasClosed,
     "Green church open for public": greenAreasOpen,
+    "Analysed area": analysedArea
   };
 
   L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(map);
