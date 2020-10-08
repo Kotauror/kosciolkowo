@@ -6,12 +6,17 @@ import "leaflet-draw/dist/leaflet.draw.css";
 import styled from "styled-components";
 import IEstate, { PropertyType } from "./coordinates/types";
 import { estates } from "./coordinates/church_estates";
-import polygonStyles from "./polygonStyles";
+import { analysed_area } from "./coordinates/analysed_area";
+import polygonStyles, {
+  defaultWeight,
+  highlightedWeight
+} from "./polygonStyles";
 
 const krakowLocation = [50.06, 19.94];
+const defaultZoom = 15;
 
 const simplefMapStyle = L.tileLayer(
-  "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png",
+  "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
   {
     detectRetina: true,
     maxZoom: 20,
@@ -20,7 +25,7 @@ const simplefMapStyle = L.tileLayer(
 );
 
 const detailedMapStyle = L.tileLayer(
-  "https://tile.osm.ch/switzerland/{z}/{x}/{y}.png",
+  "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
   {
     detectRetina: true,
     maxZoom: 20,
@@ -28,12 +33,10 @@ const detailedMapStyle = L.tileLayer(
   }
 );
 
-interface ILeaflet {
+interface IChurchPropertiesMap {
   className?: string;
   setActiveEstate(activeEstate: IEstate): void;
 }
-
-const defaultZoom = 15;
 
 const getEstatesByPropertyType = (propertyType: PropertyType) => {
   return estates[0].features.filter(
@@ -45,6 +48,27 @@ const getEstatesByInnerCharacter = (innerCharacter: boolean) => {
   return estates[0].features.filter(
     location => location.properties.isInnerElement === innerCharacter
   );
+};
+
+const actionListenersForLayers = (
+  feature: any,
+  layer: any,
+  setActiveEstate: any
+) => {
+  layer.bindTooltip(feature.properties.name);
+  layer.on("click", () => {
+    setActiveEstate(feature);
+  });
+  layer.on("mouseover", () => {
+    layer.setStyle({
+      weight: highlightedWeight
+    });
+  });
+  layer.on("mouseout", () => {
+    layer.setStyle({
+      weight: defaultWeight
+    });
+  });
 };
 
 const estateSettings = (setActiveEstate: any) => {
@@ -64,10 +88,7 @@ const estateSettings = (setActiveEstate: any) => {
       }
     },
     onEachFeature: function(feature: any, layer: any) {
-      layer.bindTooltip(feature.properties.name);
-      layer.on("click", () => {
-        setActiveEstate(feature);
-      });
+      actionListenersForLayers(feature, layer, setActiveEstate);
     }
   };
 };
@@ -83,14 +104,20 @@ const createMap = (setActiveEstate: any) => {
     estateSettings(setActiveEstate)
   );
 
+  var greenAreasOpen: any = L.geoJSON(
+    getEstatesByPropertyType(PropertyType.GREEN_AREA_OPEN_TO_PUBLIC),
+    estateSettings(setActiveEstate)
+  );
+
   var wholeChurchArea: any = L.geoJSON(getEstatesByInnerCharacter(false), {
     style: polygonStyles.plotOfLandStyle,
     onEachFeature: function(feature: any, layer: any) {
-      layer.bindTooltip(feature.properties.name);
-      layer.on("click", () => {
-        setActiveEstate(feature);
-      });
+      actionListenersForLayers(feature, layer, setActiveEstate);
     }
+  });
+
+  var analysedArea: any = L.geoJSON(analysed_area, {
+    style: polygonStyles.analysedArea
   });
 
   var map = L.map("map", {
@@ -100,20 +127,22 @@ const createMap = (setActiveEstate: any) => {
   });
 
   var baseMaps = {
-    "Simple Map": simplefMapStyle,
-    "Detailed Map": detailedMapStyle
+    "Plan miasta": simplefMapStyle,
+    "Szczegółowa mapa": detailedMapStyle
   };
 
   var overlayMaps = {
     "Area occupied by the churches": wholeChurchArea,
     "Places of Prayer": prayerLayers,
-    "Green areas closed for public": greenAreasClosed,
+    "Green church areas closed for public": greenAreasClosed,
+    "Green church open for public": greenAreasOpen,
+    "Analysed area": analysedArea
   };
 
   L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(map);
 };
 
-const Leaflet: FunctionComponent<ILeaflet> = ({
+const ChurchPropertiesMap: FunctionComponent<IChurchPropertiesMap> = ({
   className,
   setActiveEstate
 }) => {
@@ -124,9 +153,9 @@ const Leaflet: FunctionComponent<ILeaflet> = ({
   return <div id="map" className={className}></div>;
 };
 
-const StyledLeaflet = styled(Leaflet)`
+const StyledChurchPropertiesMap = styled(ChurchPropertiesMap)`
   width: -webkit-fill-available;
   height: 980px;
 `;
 
-export default StyledLeaflet;
+export default StyledChurchPropertiesMap;
