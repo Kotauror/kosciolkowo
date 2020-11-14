@@ -126,6 +126,12 @@ const createMap = (setActiveEstate: any) => {
     layers: [simplefMapStyle, wholeChurchArea]
   });
 
+  map.on("overlayadd", function () {
+    prayerLayers.bringToFront();
+    greenAreasClosed.bringToFront();
+    greenAreasOpen.bringToFront(); 
+  });
+
   var baseMaps = {
     "Plan miasta": simplefMapStyle,
     "Szczegółowa mapa": detailedMapStyle
