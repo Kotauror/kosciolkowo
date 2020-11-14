@@ -12,10 +12,9 @@ function App() {
         <link rel="stylesheet" href="files/leaflet.draw.css" />
         <script src="files/Leaflet.draw.js"></script>
       </head>
-      <header className="App-header">
-        Kościółkowo!
+      <body>
         <MapContainer />
-      </header>
+        </body>
     </div>
   );
 }
