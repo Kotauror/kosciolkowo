@@ -159,7 +159,7 @@ const ChurchPropertiesMap: FunctionComponent<IChurchPropertiesMap> = ({
 
 const StyledChurchPropertiesMap = styled(ChurchPropertiesMap)`
   width: -webkit-fill-available;
-  height: 980px;
+  height: 1980px;
 `;
 
 export default StyledChurchPropertiesMap;
