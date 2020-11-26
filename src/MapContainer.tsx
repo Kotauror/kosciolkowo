@@ -3,7 +3,6 @@ import ChurchPropertiesMap from "./ChurchPropertiesMap";
 import EstateInfo from "./EstateInfo";
 import IEstate from "./coordinates/types";
 import styled from "styled-components";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 interface IMapContainer {
   className?: string;
@@ -13,21 +12,17 @@ export const MapContainer: FunctionComponent<IMapContainer> = ({
   className
 }) => {
   const [activeEstate, setActiveEstate] = useState<IEstate | null>(null);
-  console.log(activeEstate)
+  console.log(activeEstate);
   return (
-    <TransitionGroup component={null}>
-      <div className={className}>
-        <ChurchPropertiesMap setActiveEstate={setActiveEstate} />
-        {activeEstate && (
-          <CSSTransition classNames="dialog" timeout={3000} in={activeEstate !== null}>
-            <EstateInfo
-              activeEstate={activeEstate}
-              setActiveEstate={setActiveEstate}
-            />
-          </CSSTransition>
-        )}
-      </div>
-    </TransitionGroup>
+    <div className={className}>
+      <ChurchPropertiesMap setActiveEstate={setActiveEstate} />
+      {activeEstate && (
+        <EstateInfo
+          activeEstate={activeEstate}
+          setActiveEstate={setActiveEstate}
+        />
+      )}
+    </div>
   );
 };
 
