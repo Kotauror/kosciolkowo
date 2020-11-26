@@ -4,11 +4,11 @@ import EstateInfo from "./EstateInfo";
 import IEstate from "./coordinates/types";
 import styled from "styled-components";
 
-interface IMapContainer {
+interface IMapContainerWrapper {
   className?: string;
 }
 
-export const MapContainer: FunctionComponent<IMapContainer> = ({
+export const MapContainerWrapper: FunctionComponent<IMapContainerWrapper> = ({
   className
 }) => {
   const [activeEstate, setActiveEstate] = useState<IEstate | null>(null);
@@ -26,8 +26,8 @@ export const MapContainer: FunctionComponent<IMapContainer> = ({
   );
 };
 
-const styledMapContainer = styled(MapContainer)`
+const styledMapContainerWrapper = styled(MapContainerWrapper)`
   display: flex;
 `;
 
-export default styledMapContainer;
+export default styledMapContainerWrapper;

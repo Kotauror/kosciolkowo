@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import MapContainer from "./MapContainer";
+import MapContainerWrapper from "./MapContainerWrapper";
 import styled from "styled-components";
 
 interface IHome {
@@ -18,14 +18,10 @@ export const Home: FunctionComponent<IHome> = ({ className }) => {
         <script src="files/Leaflet.draw.js"></script>
       </head>
       <body>
-        <MapContainer />
+        <MapContainerWrapper />
       </body>
     </div>
   );
 };
 
-const styledMapContainer = styled(MapContainer)`
-  display: flex;
-`;
-
-export default styledMapContainer;
+export default Home;
