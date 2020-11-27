@@ -8,9 +8,7 @@ interface IHome {
 export const Home: FunctionComponent<IHome> = ({ className }) => {
   return (
     <div className={className}>
-      <body>
-        <MapContainerWrapper />
-      </body>
+      <MapContainerWrapper />
     </div>
   );
 };

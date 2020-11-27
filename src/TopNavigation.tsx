@@ -23,9 +23,9 @@ export const TopNavigation: FunctionComponent<ITopNavigation> = ({
 const styledTopNavigation = styled(TopNavigation)`
   background-color: red;
   z-index: 100;
-  position: fixed;
-  top: 0;
   width: 100%;
+  top: 0;
+  position: fixed;
 `;
 
 export default styledTopNavigation;
