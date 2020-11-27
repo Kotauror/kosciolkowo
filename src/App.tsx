@@ -1,21 +1,29 @@
 import React from "react";
-import MapContainer from "./MapContainer";
+import { Route, Switch } from "react-router-dom";
+import Home from "./Home";
+import MainWrapper from "./MainWrapper";
+import { ThemeProvider } from "styled-components";
+import theme from "./theme";
 
 function App() {
   return (
-    <div className="App">
-      <head>
+    <main>
+         <head>
         <link rel="stylesheet" href="leaflet.css" />
         <script src="leaflet.js"></script>
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" />
         <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
         <link rel="stylesheet" href="files/leaflet.draw.css" />
         <script src="files/Leaflet.draw.js"></script>
       </head>
-      <body>
-        <MapContainer />
-        </body>
-    </div>
+      <ThemeProvider theme={theme}>
+      <Switch>
+        <MainWrapper>
+          <Route path="/" component={Home} exact />
+        </MainWrapper>
+      </Switch>
+      </ThemeProvider>
+    </main>
   );
 }
 
