@@ -27,6 +27,7 @@ export const MapContainerWrapper: FunctionComponent<IMapContainerWrapper> = ({
 };
 
 const styledMapContainerWrapper = styled(MapContainerWrapper)`
+  display: flex;
   .leaflet-container {
     z-index: 0;
   }

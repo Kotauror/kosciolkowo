@@ -2,6 +2,8 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import MainWrapper from "./MainWrapper";
+import { ThemeProvider } from "styled-components";
+import theme from "./theme";
 
 function App() {
   return (
@@ -14,11 +16,13 @@ function App() {
         <link rel="stylesheet" href="files/leaflet.draw.css" />
         <script src="files/Leaflet.draw.js"></script>
       </head>
+      <ThemeProvider theme={theme}>
       <Switch>
         <MainWrapper>
           <Route path="/" component={Home} exact />
         </MainWrapper>
       </Switch>
+      </ThemeProvider>
     </main>
   );
 }
