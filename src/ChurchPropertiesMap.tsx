@@ -55,7 +55,7 @@ const getEstatesByInnerCharacter = (innerCharacter: boolean) => {
 const actionListenersForLayers = (
   feature: any,
   layer: any,
-  setActiveEstate: any
+  setActiveEstate: (activeEstate: IEstate) => void
 ) => {
   layer.bindTooltip(feature.properties.name);
   layer.on("click", () => {
@@ -73,7 +73,7 @@ const actionListenersForLayers = (
   });
 };
 
-const estateSettings = (setActiveEstate: any) => {
+const estateSettings = (setActiveEstate: (activeEstate: IEstate) => void) => {
   return {
     style: function(feature: any) {
       switch (feature.properties.propertyType) {
@@ -95,7 +95,7 @@ const estateSettings = (setActiveEstate: any) => {
   };
 };
 
-const createMap = (setActiveEstate: any) => {
+const createMap = (setActiveEstate: (activeEstate: IEstate) => void) => {
   var prayerLayers: any = L.geoJSON(
     getEstatesByPropertyType(PropertyType.PLACE_OF_WORSHIP_OPEN_TO_PUBLIC),
     estateSettings(setActiveEstate)
@@ -128,7 +128,8 @@ const createMap = (setActiveEstate: any) => {
     layers: [simplefMapStyle, wholeChurchArea]
   });
 
-  map.on("overlayadd", function() {
+  map.on("overlayadd", function(e: MouseEvent) {
+    wholeChurchArea.bringToFront();
     prayerLayers.bringToFront();
     greenAreasClosed.bringToFront();
     greenAreasOpen.bringToFront();
