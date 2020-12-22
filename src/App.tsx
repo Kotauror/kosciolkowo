@@ -4,6 +4,7 @@ import Home from "./Home";
 import MainWrapper from "./MainWrapper";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme";
+import About from "./About";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Switch>
         <MainWrapper>
           <Route path="/" component={Home} exact />
+          <Route path="/onas" component={About} exact />
         </MainWrapper>
       </Switch>
       </ThemeProvider>

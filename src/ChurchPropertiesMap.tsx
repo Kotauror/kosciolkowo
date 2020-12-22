@@ -149,6 +149,7 @@ const createMap = (setActiveEstate: (activeEstate: IEstate) => void) => {
   };
 
   L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(map);
+  return map;
 };
 
 const ChurchPropertiesMap: FunctionComponent<IChurchPropertiesMap> = ({
@@ -156,7 +157,10 @@ const ChurchPropertiesMap: FunctionComponent<IChurchPropertiesMap> = ({
   setActiveEstate
 }) => {
   useEffect(() => {
-    createMap(setActiveEstate);
+    const map = createMap(setActiveEstate);
+    return () => {
+      map.remove();
+    };
   }, []);
 
   return <div id="map" className={className}></div>;
